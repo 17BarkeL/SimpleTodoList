@@ -8,7 +8,7 @@ document.onload = function() {
   if(todoList.length != 0) {
     todoList.forEach((item) => {
       newTodoItem();
-    
+      console.log(item.value);
       todoList.lastChild.querySelector("input").value = item.value;
     });
   }
