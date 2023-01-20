@@ -2,21 +2,23 @@ var todoList = document.querySelector(".todo-items");
 var newTodoItemButton = document.querySelector(".new-todo-item");
 var completeButton = document.querySelector(".todo-item button");
 
-document.onload = newTodoItem();
-  
-  /*() => {
+document.onload = function() {
   var todoList = JSON.parse(localStorage.getItem("todoItems"));
   
-  todoList.forEach((item) => {
-    newTodoItem();
+  if(todoList.length != 0) {
+    todoList.forEach((item) => {
+      newTodoItem();
     
-    todoList.lastChild.querySelector("input").value = item.value;
-  })
+      todoList.lastChild.querySelector("input").value = item.value;
+    });
+  }
   
-  newTodoItem()
-};*/
+  else {
+    newTodoItem();
+  }
+};
 
-/*window.onbeforeunload = () => {
+window.onbeforeunload = () => {
   var todoList = []
   var todoItemElements = document.querySelectorAll(".todo-item input");
   
@@ -25,7 +27,7 @@ document.onload = newTodoItem();
   });
   
   localStorage.setItem("todoItems", JSON.stringify(todoList));
-}*/
+}
 
 newTodoItemButton.addEventListener("click", () => {
   newTodoItem();
