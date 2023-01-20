@@ -7,10 +7,10 @@ document.onload = yes();
 function yes() {
   console.log("hello");
   console.log(localStorage.getItem("todoItems"));
-  var todoList = JSON.parse(localStorage.getItem("todoItems"));
+  var todoListStorage = JSON.parse(localStorage.getItem("todoItems"));
   
-  if(todoList != null) {
-    todoList.forEach((item) => {
+  if(todoListStorage.length != 0) {
+    todoListStorage.forEach((item) => {
       newTodoItem();
       console.log(item.value);
       todoList.lastChild.querySelector("input").value = item.value;
@@ -23,14 +23,14 @@ function yes() {
 };
 
 window.onbeforeunload = () => {
-  var todoList = []
+  var todoListStorage = []
   var todoItemElements = document.querySelectorAll(".todo-item input");
   
   todoItemElements.forEach((item) => {
-    todoList.push(item.value);
+    todoListStorage.push(item.value);
   });
   
-  localStorage.setItem("todoItems", JSON.stringify(todoList));
+  localStorage.setItem("todoItems", JSON.stringify(todoListStorage));
 }
 
 newTodoItemButton.addEventListener("click", () => {
