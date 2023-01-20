@@ -2,17 +2,19 @@ var todoList = document.querySelector(".todo-items");
 var newTodoItemButton = document.querySelector(".new-todo-item");
 var completeButton = document.querySelector(".todo-item button");
 
-document.onload = () => {
-  /*var todoList = JSON.parse(localStorage.getItem("todoItems"));
+document.onload = newTodoItem();
+  
+  /*() => {
+  var todoList = JSON.parse(localStorage.getItem("todoItems"));
   
   todoList.forEach((item) => {
     newTodoItem();
     
     todoList.lastChild.querySelector("input").value = item.value;
-  })*/
+  })
   
   newTodoItem()
-};
+};*/
 
 /*window.onbeforeunload = () => {
   var todoList = []
