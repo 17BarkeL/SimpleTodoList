@@ -2,7 +2,28 @@ var todoList = document.querySelector(".todo-items");
 var newTodoItemButton = document.querySelector(".new-todo-item");
 var completeButton = document.querySelector(".todo-item button");
 
-document.onload = newTodoItem();
+document.onload = () => {
+  var todoList = JSON.parse(localStorage.getItem("todoItems"));
+  
+  todoList.forEach((item) => {
+    newTodoItem();
+    
+    console.log(todoList.lastChild)
+  })
+  
+  newTodoItem()
+};
+
+window.onbeforeunload = () => {
+  var todoList = []
+  var todoItemElements = document.querySelectorAll(".todo-item input");
+  
+  todoItemElements.forEach((item) => {
+    todoList.push(item.value);
+  });
+  
+  localStorage.setItem("todoItems", JSON.stringify(todoList));
+}
 
 newTodoItemButton.addEventListener("click", () => {
   newTodoItem();
