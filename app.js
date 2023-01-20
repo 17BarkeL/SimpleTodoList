@@ -2,36 +2,33 @@ var todoList = document.querySelector(".todo-items");
 var newTodoItemButton = document.querySelector(".new-todo-item");
 var completeButton = document.querySelector(".todo-item button");
 
-document.onload = yes();
-
-function yes() {
-  console.log("hello");
-  console.log(localStorage.getItem("todoItems"));
+window.onload = function () {
   var todoListStorage = JSON.parse(localStorage.getItem("todoItems"));
-  
-  if(todoListStorage.length != 0) {
+
+  if (todoListStorage.length != 0) {
     todoListStorage.forEach((item) => {
       newTodoItem();
-      console.log(item);
       todoList.lastChild.querySelector("input").value = item;
     });
-  }
-  
-  else {
+  } else {
     newTodoItem();
   }
 };
 
-window.onbeforeunload = () => {
-  var todoListStorage = []
+setInterval(() => {
+  var todoListStorage = [];
   var todoItemElements = document.querySelectorAll(".todo-item input");
-  
+
+  if (todoItemElements.length == 0) {
+    newTodoItem();
+  }
+
   todoItemElements.forEach((item) => {
     todoListStorage.push(item.value);
   });
-  
+
   localStorage.setItem("todoItems", JSON.stringify(todoListStorage));
-}
+}, 10);
 
 newTodoItemButton.addEventListener("click", () => {
   newTodoItem();
@@ -48,12 +45,12 @@ function newTodoItem() {
 }
 
 function completeTodoItem(item) {
-  if (item.parentNode.parentNode.childElementCount != 1) {
-    item.parentNode.style.padding = "0";
-    item.parentNode.style.width = "0";
+  if (item.parentNode.parentNode.childElementCount - item.parentNode.parentNode.querySelectorAll("completed").length > 1) {
+    item.parentNode.classList.add("completed");
+
     setTimeout(() => {
       item.parentNode.remove();
-    }, 600);
+    }, 400);
   } else {
     item.parentNode.querySelector("input").value = "";
   }
