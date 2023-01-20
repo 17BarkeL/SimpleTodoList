@@ -3,18 +3,18 @@ var newTodoItemButton = document.querySelector(".new-todo-item");
 var completeButton = document.querySelector(".todo-item button");
 
 document.onload = () => {
-  var todoList = JSON.parse(localStorage.getItem("todoItems"));
+  /*var todoList = JSON.parse(localStorage.getItem("todoItems"));
   
   todoList.forEach((item) => {
     newTodoItem();
     
     todoList.lastChild.querySelector("input").value = item.value;
-  })
+  })*/
   
   newTodoItem()
 };
 
-window.onbeforeunload = () => {
+/*window.onbeforeunload = () => {
   var todoList = []
   var todoItemElements = document.querySelectorAll(".todo-item input");
   
@@ -23,7 +23,7 @@ window.onbeforeunload = () => {
   });
   
   localStorage.setItem("todoItems", JSON.stringify(todoList));
-}
+}*/
 
 newTodoItemButton.addEventListener("click", () => {
   newTodoItem();
