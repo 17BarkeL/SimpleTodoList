@@ -13,7 +13,7 @@ function yes() {
     todoListStorage.forEach((item) => {
       newTodoItem();
       console.log(item.value);
-      todoList.lastChild.querySelector("input").value = item.value;
+      todoList.lastChild.querySelector("input").value = item;
     });
   }
   
