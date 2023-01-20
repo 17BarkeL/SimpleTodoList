@@ -12,7 +12,7 @@ function yes() {
   if(todoListStorage.length != 0) {
     todoListStorage.forEach((item) => {
       newTodoItem();
-      console.log(item.value);
+      console.log(item);
       todoList.lastChild.querySelector("input").value = item;
     });
   }
