@@ -9,7 +9,7 @@ function yes() {
   console.log(localStorage.getItem("todoItems"));
   var todoList = JSON.parse(localStorage.getItem("todoItems"));
   
-  if(todoList.length != 0) {
+  if(todoList != null) {
     todoList.forEach((item) => {
       newTodoItem();
       console.log(item.value);
