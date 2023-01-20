@@ -6,7 +6,7 @@ document.onload = yes();
 
 function yes() {
   console.log("hello");
-  console.log(localStorage.getItem("todoItems");
+  console.log(localStorage.getItem("todoItems"));
   var todoList = JSON.parse(localStorage.getItem("todoItems"));
   
   if(todoList.length != 0) {
