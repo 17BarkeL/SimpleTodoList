@@ -3,6 +3,7 @@ var newTodoItemButton = document.querySelector(".new-todo-item");
 var completeButton = document.querySelector(".todo-item button");
 
 document.onload = function() {
+  console.log("hello");
   console.log(localStorage.getItem("todoItems");
   var todoList = JSON.parse(localStorage.getItem("todoItems"));
   
